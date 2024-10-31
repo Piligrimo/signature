@@ -28,10 +28,10 @@ export default {
     }
   },
   methods: { 
-    setPosition(e) {
+    setPosition(e) {      
       const {top, left } = this.canvas.getBoundingClientRect()
-      this.pos.x = e.clientX - left;
-      this.pos.y = e.clientY - top;
+      this.pos.x = (e.clientX || e.changedTouches[0].clientX) - left;
+      this.pos.y = (e.clientY || e.changedTouches[0].clientY) - top;
     },
     resize() {
       this.ctx.canvas.width = this.canvas.offsetWidth;
@@ -58,7 +58,7 @@ export default {
       };
     },
     draw(e) {
-      if (e.buttons !== 1) return;
+      this.event = e      
       const start = {...this.pos};
 
       this.ctx.beginPath(); // begin
@@ -72,6 +72,7 @@ export default {
       this.ctx.lineTo(this.pos.x, this.pos.y); // to
       const finish = {...this.pos};
       this.ctx.stroke(); // draw it!
+      
       this.sendLine(start, finish);
     },
   },
