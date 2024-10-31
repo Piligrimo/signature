@@ -99,6 +99,8 @@ export default {
     window.addEventListener('resize', this.resize);
     document.addEventListener('mousemove', this.draw);
     document.addEventListener('mousedown', this.setPosition);
+    document.addEventListener('touchmove', this.draw);
+    document.addEventListener('touchstart', this.setPosition);
     document.addEventListener('mouseenter', this.setPosition);
   }
 }
