@@ -76,7 +76,7 @@ export default {
     },
   },
   mounted() {
-    this.socket = new WebSocket('ws://wiry-pastoral-spade.glitch.me');
+    this.socket = new WebSocket('wss://wiry-pastoral-spade.glitch.me');
     this.socket.addEventListener('open', function () {
         console.log('Connected to WS Server')
     });
