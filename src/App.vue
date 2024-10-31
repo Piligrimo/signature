@@ -16,7 +16,6 @@ export default {
         y: 0
       },
       socket: null,
-      lastSent: new Date()
     }
   },
   computed: {
@@ -46,8 +45,6 @@ export default {
     },
     sendLine(start, finish) {
       const str = JSON.stringify({start, finish})
-      console.log('sendLine', str);
-
       this.socket.send(str);
     },
     getImage(serverImage) {
@@ -58,7 +55,10 @@ export default {
       };
     },
     draw(e) {
-      this.event = e      
+      this.event = e    
+      console.log(e.type);
+        
+      if (e.buttons !== 1 && e.type === 'mousemove') return;
       const start = {...this.pos};
 
       this.ctx.beginPath(); // begin
