@@ -1,5 +1,9 @@
 <template>
   <div id="app">
+    <div>
+      <img src="doc.png" alt="">
+    </div>
+    <h3>Подпись свидетеля Хлюпиной М. С.</h3>
     <canvas id="canvas" ref="canvas"></canvas>
   </div>
 </template>
@@ -65,7 +69,7 @@ export default {
 
       this.ctx.lineWidth = 5;
       this.ctx.lineCap = 'round';
-      this.ctx.strokeStyle = '#c0392b';
+      this.ctx.strokeStyle = '#47136e';
 
       this.ctx.moveTo(this.pos.x, this.pos.y); // from
       this.setPosition(e);
@@ -87,7 +91,7 @@ export default {
         const {start, finish} = JSON.parse(event.data);
         this.ctx.lineWidth = 5;
         this.ctx.lineCap = 'round';
-        this.ctx.strokeStyle = '#c0392b';
+        this.ctx.strokeStyle = '#47136e';
         this.ctx.moveTo(start.x, start.y); // from
         this.ctx.lineTo(finish.x, finish.y); // to
         this.ctx.stroke(); // draw it!
@@ -118,7 +122,13 @@ export default {
 }
 #canvas {
   border: #2c3e50 1px solid;  
+  border: #47136e 1px solid;  
   width: 300px;
   height: 150px;
+}
+img {
+  width: 100%;
+  max-width: 700px;
+  margin: auto;
 }
 </style>
